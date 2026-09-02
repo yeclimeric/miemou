@@ -8,9 +8,9 @@
 
 ## Skill 安装
 
-Agent 在执行初始化时，应根据项目类型安装对应的 skill，安装目录由用户所使用的 Agent 自行决定，本文档不做限定。
+提问用户是否安装以下skill，需告知用户每个skill的功能
 
-### 默认安装
+### skill 安装清单
 
 - **karpathy-guidelines** — 行为准则，减少 LLM 常见编码失误（过度工程、臆测假设、缺乏验证标准），适用于所有代码编写、审查、重构场景
 - **ponytail** — 强制最简可行方案，抑制过度工程，适用于所有编码任务：编写、添加、重构、修复、审查或设计代码，以及选择库或依赖项时
@@ -27,7 +27,7 @@ Agent 在执行初始化时，应根据项目类型安装对应的 skill，安�
 
 ## 规则安装
 
-从 https://github.com/multica-ai/andrej-karpathy-skills 仓库获取 `CLAUDE.md` 文件，保存到当前项目根目录。
+从 <https://github.com/multica-ai/andrej-karpathy-skills> 仓库获取 `CLAUDE.md` 文件，保存到当前项目根目录。
 
 获取地址：`https://raw.githubusercontent.com/multica-ai/andrej-karpathy-skills/main/CLAUDE.md`
 
