@@ -1,10 +1,6 @@
 # 总则
 
-为当前仓库创建或更新 `AGENTS.md` 文件。
-
-目标：生成一份精简的指令文件，帮助Agent后续会话规避错误、快速上手。每一条内容都要回答这个问题：「如果没有这份提示，AI Agent 是否很容易遗漏该信息？」，如果答案是否定的，就不要写入。
-
-必须遵守用户给出的重点与约束。
+为当前仓库初始化为AI项目仓库。
 
 ## Skill 安装
 
@@ -27,13 +23,19 @@
 
 ## 规则安装
 
-从 <https://github.com/multica-ai/andrej-karpathy-skills> 仓库获取 `CLAUDE.md` 文件，保存到当前项目根目录。
+从 [https://github.com/multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) 仓库获取 `CLAUDE.md` 文件，保存到当前项目根目录。
 
 获取地址：`https://raw.githubusercontent.com/multica-ai/andrej-karpathy-skills/main/CLAUDE.md`
 
 该文件为编码行为准则，适用于所有代码编写场景。如果项目根目录已存在 `CLAUDE.md`，将获取内容与现有内容合并，保留项目专属指令，去重冲突条款。
 
 ## Agents 文档
+
+为当前仓库创建或更新 `AGENTS.md` 文件。
+
+目标：生成一份精简的指令文件，帮助Agent后续会话规避错误、快速上手。每一条内容都要回答这个问题：「如果没有这份提示，AI Agent 是否很容易遗漏该信息？」，如果答案是否定的，就不要写入。
+
+必须遵守用户给出的重点与约束。
 
 ### 调研方式
 
