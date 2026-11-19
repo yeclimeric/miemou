@@ -3,7 +3,8 @@
 > miemou §6 架构深化的配套报告格式，完整迁移自开源 skill improve-codebase-architecture
 > 的 HTML-REPORT.md。
 
-架构审视渲染为单个自包含 HTML 文件，写入项目内 `.miemou/`（不入库）。Tailwind 与 Mermaid
+架构审视渲染为单个自包含 HTML 文件，写入项目内 `.miemou/` 的当天日期三级目录
+`.miemou/YYYY/YYYYMM/YYYYMMDD/`（不入库）。Tailwind 与 Mermaid
 都走 CDN。Mermaid 可靠处理图状图示；手工 div 与内联 SVG 处理更编辑性的视觉（质量图、
 剖面图）。两者混用：不要什么都靠 Mermaid，会显得模板化。
 

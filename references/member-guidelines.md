@@ -375,8 +375,8 @@ profiler、查询计划），再 bisect。先测量，后修复。
 
 ### 6.2 呈报候选：HTML 报告
 
-把候选写成单文件自包含 HTML 报告，写入项目内 `.miemou/architecture-review-<时间戳>.html`
-（不入库，符合临时产物约定）。用系统默认应用打开并告知操作者绝对路径。
+把候选写成单文件自包含 HTML 报告，写入项目内 `.miemou/YYYY/YYYYMM/YYYYMMDD/architecture-review-<时间戳>.html`
+（日期目录按当天逐级创建；不入库，符合临时产物约定）。用系统默认应用打开并告知操作者绝对路径。
 报告格式、脚手架与图示模式：Load `references/architecture-report.md`。
 
 每个候选一张卡片：
