@@ -45,6 +45,7 @@
 - [SKILL.md](SKILL.md)：技能入口——模式路由、双模式工作流、红线与交付前检查清单。
 - [references/init-project.md](references/init-project.md)：模式一细则（调研方式、AGENTS.md 提取与编写规则）。
 - [references/member-guidelines.md](references/member-guidelines.md)：六套内置成员规则原文 + 全员行为准则。
+- [references/karpathy-examples.md](references/karpathy-examples.md)：karpathy 四原则配套——逐原则真实代码示例（对错对照、反模式速查、关键洞见）。
 - [references/team-model.md](references/team-model.md)：项目约定卡模板、团队角色、派发纪律与回传格式。
 - [references/task-package.md](references/task-package.md)：统一任务包格式、四种任务来源适配、优先级裁决。
 - [references/quality-gates.md](references/quality-gates.md)：质量门禁、分支与提交纪律、临时产物约定、无约定项目兜底。
@@ -58,6 +59,7 @@
 
 | 本仓库位置 | 来源 skill | 整合内容 | 上游许可证 |
 |---|---|---|---|
+| [member-guidelines.md](references/member-guidelines.md) §1 + [karpathy-examples.md](references/karpathy-examples.md) | [karpathy-guidelines](https://github.com/multica-ai/andrej-karpathy-skills)（andrej-karpathy-skills） | karpathy 四原则：三思而后写、简单优先、外科手术式改动、目标驱动执行；配套逐原则代码示例与反模式速查 | [MIT](https://opensource.org/licenses/MIT) |
 | [member-guidelines.md](references/member-guidelines.md) §2 | ponytail | 最简完整改动：取舍顺序、绝不削减清单、lite/full/ultra 级别 | [MIT](https://opensource.org/licenses/MIT) |
 | [member-guidelines.md](references/member-guidelines.md) §4 | diagnosing-bugs | 诊断循环六阶段：反馈回路、脱敏、复现最小化、假设、插桩、修复回归、清理 | 未标注 |
 | [member-guidelines.md](references/member-guidelines.md) §5 | grilling | 审视法：设计树、前沿轮次、事实与决策分工 | 未标注 |
@@ -66,7 +68,7 @@
 | [architecture-report.md](references/architecture-report.md) | improve-codebase-architecture（HTML-REPORT.md） | 架构审视 HTML 报告格式与图示模式 | 未标注 |
 | [scripts/hitl-loop.template.sh](references/scripts/hitl-loop.template.sh) | diagnosing-bugs（scripts/） | HITL 复现回路模板脚本 | 未标注 |
 
-其余两套规则（§1 karpathy 四原则、§3 TDD）为本项目原生内容。
+其余一套规则（§3 TDD）为本项目原生内容。
 
-- ponytail 以 [MIT License](https://opensource.org/licenses/MIT) 发布；再分发时依 MIT 条款保留其原始版权与许可声明。
+- karpathy-guidelines 与 ponytail 均以 [MIT License](https://opensource.org/licenses/MIT) 发布（前者声明于 skill 元数据的 `license` 字段）；再分发时依 MIT 条款保留其原始版权与许可声明。
 - 其余来源 skill 未在本地元数据中标注许可证，以各上游项目实际声明为准；如你有上游仓库地址，欢迎补充链接完善本节。

@@ -8,6 +8,7 @@ miemou 团队成员不依赖外部 skill 安装与在线获取——六套规则
 - `references/codebase-design.md` — §6 架构深化的设计词汇（模块/接口/深度/接缝/适配器/杠杆/局部性）、
   深化指南与「设计两次」并行探索模式
 - `references/architecture-report.md` — §6 候选呈报的 HTML 报告格式与图示模式
+- `references/karpathy-examples.md` — §1 四原则的真实代码示例（对错对照、反模式速查、关键洞见）
 - `references/scripts/hitl-loop.template.sh` — §4 诊断循环最后手段的 HITL 回路模板脚本
 
 ## 目录
@@ -24,6 +25,8 @@ miemou 团队成员不依赖外部 skill 安装与在线获取——六套规则
 
 > 行为准则，减少 LLM 常见编码失误。与项目专属指令合并使用。
 > 取舍：这些准则偏向谨慎而非速度。琐碎任务自行判断。
+> 源自开源 skill **karpathy-guidelines**（[multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)，MIT License），完整迁移；
+> 规则衍生自 Andrej Karpathy 对 LLM 编码缺陷的观察。逐原则对错示例：Load `references/karpathy-examples.md`。
 
 ### 1.1 三思而后写（Think Before Coding）
 
