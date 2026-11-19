@@ -5,7 +5,7 @@
 ## 目录
 
 1. Step 1: 规则配置确认
-2. Step 2: 编码规则落盘（CLAUDE.md）
+2. Step 2: 编码规则落盘（CONTEXTS.md）
 3. Step 3: 生成 AGENTS.md
    - 3.1 调研方式
    - 3.2 需要提取的内容
@@ -15,7 +15,8 @@
 
 ## 1. Step 1: 规则配置确认 ⚠️ REQUIRED
 
-告知操作者：miemou 已内置六套成员规则（原文在 `references/member-guidelines.md`），
+告知操作者：miemou 已内置六套成员规则（完整原文在 `references/member-guidelines.md`，
+架构配套见 `references/codebase-design.md` 与 `references/architecture-report.md`），
 本项目与团队运行**无需安装外部 skill、无需在线获取规则**：
 
 - **karpathy 四原则** — 行为准则，减少 LLM 常见编码失误（过度工程、臆测假设、缺乏验证标准），
@@ -36,16 +37,17 @@
 
 操作者不需要独立安装时，本步骤只需确认「内置规则已就位」，直接进 Step 2。
 
-## 2. Step 2: 编码规则落盘（CLAUDE.md）
+## 2. Step 2: 编码规则落盘（CONTEXTS.md）
 
 取 `references/member-guidelines.md` §1 的 karpathy 四原则原文（含取舍说明与生效标志），
-落到当前项目根目录 `CLAUDE.md`：
+落到当前项目根目录 `CONTEXTS.md`——不绑定任何 agent 工具链的通用上下文文件。
+与 Step 3 的 `AGENTS.md` 明确分工：`CONTEXTS.md` 承载编码行为基线（跨项目通用的行为准则），
+`AGENTS.md` 只写本仓库专属指引（§3 的高价值提取物），互不掺杂：
 
 - 文件不存在 → 直接创建，内容为四原则全文。
-- 文件已存在 → 将四原则与现有内容**合并**：保留项目专属指令，去重冲突条款；
-  不全盘重写、不丢弃既有内容。
+- 文件已存在 → 与现有内容**合并**：保留项目专属指令，去重冲突条款，不全盘重写、不丢弃既有内容。
 
-该文件适用于所有代码编写场景，是后续会话与团队成员（子 agent）的行为基线。
+该基线适用于所有代码编写场景，是后续会话与团队成员（子 agent）的行为底线。
 
 ## 3. Step 3: 生成 AGENTS.md ⚠️ REQUIRED
 
@@ -63,7 +65,7 @@
 - `README*`、根目录清单文件、工作区配置、锁文件
 - 构建、测试、代码检查、格式化、类型检查、代码生成相关配置
 - CI 工作流、pre-commit / 任务运行器配置
-- 现有指令文件（`AGENTS.md`、`CLAUDE.md`、`.cursor/rules/`、`.cursorrules`）
+- 现有指令文件（`AGENTS.md`、`CONTEXTS.md`、`.cursor/rules/`、`.cursorrules`）
 
 读完配置与文档后仍不清楚整体架构时，查看少量代表性代码文件，找出真实入口、包边界与执行流程。
 优先读能说明系统整体串联逻辑的文件，不随意翻看底层零散文件。

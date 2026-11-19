@@ -15,7 +15,7 @@
 为代码仓库初始化 AI 项目环境：
 
 1. **规则配置**——六套成员规则（karpathy 四原则、ponytail 最简原则、诊断循环、TDD、审视法、架构深化）已内置在技能中，无需安装外部 skill、无需在线获取。
-2. **编码规则落盘**——karpathy 四原则写入项目根目录 `CLAUDE.md`（已有则合并，保留项目专属指令）。
+2. **编码规则落盘**——karpathy 四原则落盘 `CONTEXTS.md`（已有则合并，保留项目专属指令）；与 `AGENTS.md` 分工：前者承载行为基线，后者只写仓库专属指引，两者均不绑定特定 agent 工具链。
 3. **生成 AGENTS.md**——按「没有这条提示，Agent 是否容易遗漏」的标准，为仓库沉淀高价值指令文件。
 
 ### 模式二：自运行 AI 团队
@@ -48,3 +48,25 @@
 - [references/team-model.md](references/team-model.md)：项目约定卡模板、团队角色、派发纪律与回传格式。
 - [references/task-package.md](references/task-package.md)：统一任务包格式、四种任务来源适配、优先级裁决。
 - [references/quality-gates.md](references/quality-gates.md)：质量门禁、分支与提交纪律、临时产物约定、无约定项目兜底。
+- [references/codebase-design.md](references/codebase-design.md)：架构深化配套——深模块设计词汇（模块/接口/深度/接缝/适配器/杠杆/局部性）、深化指南与「设计两次」并行探索模式。
+- [references/architecture-report.md](references/architecture-report.md)：架构深化配套——候选呈报 HTML 报告格式、脚手架与图示模式。
+- [references/scripts/hitl-loop.template.sh](references/scripts/hitl-loop.template.sh)：诊断循环配套——HITL（human-in-the-loop）复现回路模板脚本。
+
+## 致谢（Acknowledgments）
+
+本技能内置的成员规则整合自以下开源 agent skill——感谢原作者的杰出工作。整合时完整保留了各自的规则、清单与示例，并统一为中文：
+
+| 本仓库位置 | 来源 skill | 整合内容 | 上游许可证 |
+|---|---|---|---|
+| [member-guidelines.md](references/member-guidelines.md) §2 | ponytail | 最简完整改动：取舍顺序、绝不削减清单、lite/full/ultra 级别 | [MIT](https://opensource.org/licenses/MIT) |
+| [member-guidelines.md](references/member-guidelines.md) §4 | diagnosing-bugs | 诊断循环六阶段：反馈回路、脱敏、复现最小化、假设、插桩、修复回归、清理 | 未标注 |
+| [member-guidelines.md](references/member-guidelines.md) §5 | grilling | 审视法：设计树、前沿轮次、事实与决策分工 | 未标注 |
+| [member-guidelines.md](references/member-guidelines.md) §6 | improve-codebase-architecture | 架构深化：摩擦勘察、删除测试、HTML 候选报告、审视循环 | 未标注 |
+| [codebase-design.md](references/codebase-design.md) | codebase-design | 深模块设计词汇、深化指南、「设计两次」并行探索模式 | 未标注 |
+| [architecture-report.md](references/architecture-report.md) | improve-codebase-architecture（HTML-REPORT.md） | 架构审视 HTML 报告格式与图示模式 | 未标注 |
+| [scripts/hitl-loop.template.sh](references/scripts/hitl-loop.template.sh) | diagnosing-bugs（scripts/） | HITL 复现回路模板脚本 | 未标注 |
+
+其余两套规则（§1 karpathy 四原则、§3 TDD）为本项目原生内容。
+
+- ponytail 以 [MIT License](https://opensource.org/licenses/MIT) 发布；再分发时依 MIT 条款保留其原始版权与许可声明。
+- 其余来源 skill 未在本地元数据中标注许可证，以各上游项目实际声明为准；如你有上游仓库地址，欢迎补充链接完善本节。
