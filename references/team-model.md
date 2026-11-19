@@ -73,7 +73,7 @@ PM 是主 agent；其余角色是 PM 经宿主的子 agent 派发机制（task/s
   子 agent 没有操作者通道——禁止把交互型规则原样下发后空等。
 - **子 agent git 边界**（写入 prompt「边界」节）：只在当前任务分支提交；禁止 push 远端、
   合并/rebase 主分支、切换其他任务分支——合并与推送由 PM 执行。
-- 临时产物路径在 prompt 里显式指定（项目内 `.miemou/YYYY/YYYYMM/YYYYMMDD/<任务号>-<用途>.<ext>`，
+- 临时产物路径在 prompt 里显式指定（项目内 `.miemou/YYYYMM/DD/<任务号>-<用途>.<ext>`，
   日期取当天逐级创建），
   禁止写系统临时目录（`/tmp`、`/var/folders`、`~/.cache`）。
 - 按 task 类型在 prompt 中引用 `references/member-guidelines.md` 的对应章节：
@@ -94,7 +94,7 @@ PM 是主 agent；其余角色是 PM 经宿主的子 agent 派发机制（task/s
 <Step 0 产出的约定卡全文>
 全员行为准则：<member-guidelines.md §7 五条原文>
 （按任务类型追加：member-guidelines.md §<n> <章节名>）
-临时产物路径：.miemou/YYYY/YYYYMM/YYYYMMDD/<任务号>-<用途>.<ext>（如有；日期取当天）
+临时产物路径：.miemou/YYYYMM/DD/<任务号>-<用途>.<ext>（如有；日期取当天）
 回传格式：<按下方各角色的回传格式>
 边界：只做本任务包内的事；只在任务分支 <分支名> 上提交，不 push 远端、不合并主分支；
 发现相邻问题记入回传的"发现但未处理"，不擅自扩面；
