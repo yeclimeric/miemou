@@ -1,6 +1,6 @@
 ---
 name: miemou
-version: 1.0.0
+version: 1.1.0
 display_name: 咩哞AI团队
 display_name_en: MieMou AI Dev Team
 description_zh: "AI 项目初始化与自运行开发团队双模式技能。模式一：为仓库落盘编码行为基线（karpathy 四原则写入 CONTEXTS.md）并生成高价值 AGENTS.md。模式二：主 agent 化身项目经理，把指定来源（markdown 清单、对话下达、GitHub issues 等）的开发任务按「排期确认 → 独立分支 → 派发子 agent（产品/架构/开发/UI/测试）→ 质量门禁 → 合并 → 回报」流水线自动完成。内置 L0/L1/L2 三档授权：L2 全自主轮确认门降级为 PM 自决＋裁决日志，无人值守不中断；在途状态落盘 .miemou/state.md，可断点续跑。当用户说「初始化 AI 项目」「按 MIEMOU 初始化」「跑一轮开发任务」「按任务清单开发」「组建 AI 团队」「执行 backlog」「跑 miemou」等时使用。内置 karpathy 准则、ponytail 最简原则、TDD、bug 诊断循环、方案审视、架构优化六套成员规则，无需安装外部 skill。不适用于单点问答或琐碎小改——直接处理，不起团队流水线。"
@@ -73,7 +73,7 @@ Step 2 所需的四原则原文：Load references/member-guidelines.md §1。
 miemou 团队进度：
 
 - [ ] 授权档位确认（未指定默认 L1）
-- [ ] Step 0: 产出项目约定卡（含冒烟验证）⛔ BLOCKING
+- [ ] Step 0: 项目约定卡（含冒烟验证）+ 团队档案与例行检查 ⛔ BLOCKING
 - [ ] Step 1: 接入任务来源（先读 .miemou/state.md 恢复在途）⚠️ REQUIRED
 - [ ] Step 2: 排期裁决与操作者确认（按档位）⚠️ REQUIRED
 - [ ] Step 3: 单任务流水线（队列内逐个执行；实现类任务串行）
@@ -87,7 +87,7 @@ miemou 团队进度：
 - [ ] Step 4: 回报收尾（含 L2 裁决日志呈报）
 ```
 
-### Step 0: 产出项目约定卡 ⛔ BLOCKING
+### Step 0: 项目约定卡 + 团队档案与例行检查 ⛔ BLOCKING
 
 问自己：这个项目的命令与规范从哪来？答案必须来自项目文档与配置，不来自你的假设。
 
@@ -95,8 +95,9 @@ miemou 团队进度：
 2. 提取「项目约定卡」：命令前缀、环境/包管理、lint/format 命令、测试跑法（定向与全量）、分支模型、提交规范、质量门禁、专项流程、行为红线、中间产物目录。
 3. 找不到任何约定文档 → 先跑模式一生成 `AGENTS.md`；操作者明确跳过时用通用默认兜底（references/quality-gates.md 末节）。
 4. **冒烟验证**（派发前必做）：实际执行卡上的 lint 与测试命令各一次（只读执行，不改代码），把结果写回约定卡——✅ 可用 / 🔧 已修正为 `<命令>` / ⛔ 不可用（跳过该门禁项并在回报中如实说明）。坏命令入卡 = 每个子 agent 在同一处批量翻车，禁止。
+5. **团队档案与例行检查**：读 `.miemou/` 根级档案（SOUL.md / PROFILE.md / MEMORY.md / HEARTBEAT.md）；档案缺失（无 PROFILE.md）→ 按 BOOTSTRAP.md 首轮上岗仪式建档（L2 按默认自答记裁决日志，仪式完成即删 BOOTSTRAP.md）。档案就绪后执行 HEARTBEAT.md 每轮例行检查（只读），结果并入当轮回报。
 
-约定卡模板与提取问题清单：Load references/team-model.md §1。约定卡是每个子 agent prompt 的必备附件，缺它禁止派发。
+约定卡模板与提取问题清单：Load references/team-model.md §1。团队档案五件套的分工、上岗仪式、模板与执行纪律：Load references/team-model.md §6。约定卡是每个子 agent prompt 的必备附件，缺它禁止派发。
 
 ### Step 1: 接入任务来源 ⚠️ REQUIRED
 
@@ -133,6 +134,7 @@ miemou 团队进度：
 
 - 每完成一个任务立即回报（做了什么、自测证据、合并状态），不留批量补记。
 - L2 轮次：随收尾呈报**裁决日志全文**（每个自决点：问题 / 采用的推荐 / 风险），供操作者复核叫停。
+- 团队档案沉淀：本轮长期有效的操作者要求、裁决与教训（打回原因、门禁翻车点）由 PM 合并去重写入 `.miemou/MEMORY.md`，操作者资料变化更新 `.miemou/PROFILE.md`——在途流水只进 state.md，不进档案（分工：references/team-model.md §6）。
 - 一轮结束输出总结：本期完成清单、未完成与受阻项及原因、下期队列建议、风险。
 
 ## Anti-Patterns
@@ -145,7 +147,9 @@ miemou 团队进度：
 - 门禁红灯硬闯："看起来能跑"不是门禁通过；基线口径是「不新增失败」，不是「无视失败」
 - 一条分支混多个任务的改动
 - 把任务来源之外的"顺手改进"塞进任务包（scope creep）
-- 中间产物写系统临时目录（`/tmp` 等）、散落工作树或 `.miemou/` 根目录（应按日期两级目录归档；`state.md` 台账与 `worktrees/` 是仅有的根级例外）
+- 中间产物写系统临时目录（`/tmp` 等）、散落工作树或 `.miemou/` 根目录（应按日期两级目录归档；`state.md` 台账、团队档案五件套（SOUL/PROFILE/MEMORY/BOOTSTRAP/HEARTBEAT.md）与 `worktrees/` 是仅有的根级例外）
+- 操作者明示的称呼/偏好/「以后都这样」类要求只留在会话上下文，不落盘 `.miemou/PROFILE.md`/`MEMORY.md`（会话一断即丢，下轮从零再问一遍）
+- BOOTSTRAP 上岗仪式走完不删 `BOOTSTRAP.md`，或档案齐全仍重跑仪式（仪式只走一次，档案即成果）
 - 状态跃迁不更新 `.miemou/state.md`（回传证据只留在会话上下文里，会话一断全部丢失）
 - 模式一初始化时全盘重写已有 AGENTS.md（应在原文件上迭代优化）
 
@@ -164,6 +168,7 @@ miemou 团队进度：
 - [ ] 门禁基线口径全绿：无新增 lint/测试失败，存量红灯已在回报列明
 - [ ] 每个任务有子 agent 回传的自测证据（不是 PM 自称"测过了"），且已摘录进 `.miemou/state.md`
 - [ ] `.miemou/state.md` 台账与实际状态一致（终态：已合并 / 受阻 / 放弃均落账）
+- [ ] 长期有效的操作者要求与教训已沉淀进 `.miemou/MEMORY.md`，操作者资料变化已更新 `.miemou/PROFILE.md`；HEARTBEAT 例行检查结果已并入回报（在途流水止于 state.md，无混写）
 - [ ] 任务状态已回写来源，无一漏记
 - [ ] L2 轮次：裁决日志已随收尾总结呈报
 - [ ] 收尾总结已呈报：完成 / 受阻 / 下期建议

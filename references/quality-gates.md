@@ -65,8 +65,11 @@
   （`.miemou/YYYYMM/DD/<任务号或主题>-<用途>.<ext>`，日期取当天，文件名不加日期前缀）；
   需操作者目检的验收产物保留至按授权档位确认（L0/L1 操作者逐项确认；L2 收尾呈报）后再清理，纯调试产物结项即删；`.miemou/` 永不入库，
   commit 前确认无 `.miemou/` 路径混入暂存区。
-- 仅有的两个根级例外：`.miemou/state.md`（任务状态台账，见下节——需跨轮存活，不入日期目录）
-  与 `.miemou/worktrees/`（并行实现的隔离检出，非文档产物，不按日期归档）。
+- 仅有的根级例外：`.miemou/state.md`（任务状态台账，见下节——需跨轮存活，不入日期目录）、
+  `.miemou/worktrees/`（并行实现的隔离检出，非文档产物，不按日期归档）与团队档案五件套
+  `SOUL.md` / `PROFILE.md` / `MEMORY.md` / `BOOTSTRAP.md` / `HEARTBEAT.md`
+  （团队人格、身份、长期记忆、首轮上岗仪式与例行检查，见 team-model.md §6——跨轮存活，
+  BOOTSTRAP.md 仪式完成即删）。
 
 ### 5.1 任务状态台账（.miemou/state.md）
 

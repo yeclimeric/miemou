@@ -24,11 +24,12 @@
 
 **授权档位（L0/L1/L2）**：确认门的行为由档位统一决定，默认 L1（队列确认一次、本轮自动跑完）；「自主跑」切 L2 后所有确认门降级为 PM 按推荐答案自决 + 裁决日志落盘 + 收尾批量呈报，无人值守不中断——质量门禁与打回纪律在任何档位下不降级。
 
-**不中断三件套**：
+**不中断与连续性**：
 
 - 在途状态落盘 `.miemou/state.md`（任务状态台账，每次状态跃迁即时更新）——会话中断后读台账断点续跑；
 - 门禁基线口径——建分支时捕获 lint/测试基线快照，门禁标准是「不新增失败」，主分支存量红灯不冻结新任务；
-- 红灯修复回路 + 轮级熔断——测试失败附全文再派原开发子 agent，预算 3 轮；连续 2 个任务受阻自动停轮收尾。
+- 红灯修复回路 + 轮级熔断——测试失败附全文再派原开发子 agent，预算 3 轮；连续 2 个任务受阻自动停轮收尾；
+- 团队档案五件套 `.miemou/SOUL.md`、`PROFILE.md`、`MEMORY.md`、`BOOTSTRAP.md`、`HEARTBEAT.md`（qwenpaw 式档案设计）——团队人格、身份与长期记忆跨轮沉淀，首轮 BOOTSTRAP 上岗仪式建档（完成即自删），HEARTBEAT 每轮例行检查；操作者特异性要求落盘档案，不靠会话上下文续命。
 
 **单工作树约束**：实现与自测类任务默认串行；只读勘察类可并行（上限 3）；确需并行实现时用 `git worktree` 隔离，合并后清理。
 
@@ -56,7 +57,7 @@
 - [references/init-project.md](references/init-project.md)：模式一细则（调研方式、AGENTS.md 提取与编写规则）。
 - [references/member-guidelines.md](references/member-guidelines.md)：六套内置成员规则原文 + 全员行为准则。
 - [references/karpathy-examples.md](references/karpathy-examples.md)：karpathy 四原则配套——逐原则真实代码示例（对错对照、反模式速查、关键洞见）。
-- [references/team-model.md](references/team-model.md)：项目约定卡模板、团队角色、派发纪律与回传格式。
+- [references/team-model.md](references/team-model.md)：项目约定卡模板、团队角色、派发纪律、回传格式与团队档案五件套（SOUL/PROFILE/MEMORY/BOOTSTRAP/HEARTBEAT.md，qwenpaw 式档案设计）。
 - [references/task-package.md](references/task-package.md)：统一任务包格式、四种任务来源适配、优先级裁决。
 - [references/quality-gates.md](references/quality-gates.md)：质量门禁（基线口径）、分支与提交纪律、任务状态台账（.miemou/state.md）、红灯修复回路与熔断、无约定项目兜底。
 - [references/codebase-design.md](references/codebase-design.md)：架构深化配套——深模块设计词汇（模块/接口/深度/接缝/适配器/杠杆/局部性）、深化指南与「设计两次」并行探索模式。
