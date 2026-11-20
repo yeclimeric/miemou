@@ -114,7 +114,7 @@ miemou 团队进度：
 
 ### Step 3: 单任务流水线
 
-对队列内任务逐个执行。**并行纪律（单工作树约束）**：实现与自测类任务（会产生工作树改动）一律串行——单工作树不支持多分支并行检出，两个子 agent 并行 checkout 会互相破坏未提交改动；只读勘察类任务（方案、测试设计、代码勘察）可并行，上限 3。确需并行实现时，必须先为每个并行任务建隔离工作树（`git worktree add .miemou/worktrees/<任务号> <分支>`），派发 prompt 写明 worktree 路径，合并后 `git worktree remove` 清理（细则 references/quality-gates.md §3）。派发前勘察涉及面，避免两个任务包隐性重叠。
+对队列内任务逐个执行。**并行纪律（单工作树约束）**：实现与自测类任务（会产生工作树改动）一律串行——单工作树不支持多分支并行检出，两个子 agent 并行 checkout 会互相破坏未提交改动；只读勘察类任务（方案、测试设计、代码勘察）可并行，上限 3（唯一注册例外：codebase-design.md §8「设计两次」的接口探索，上限 4）。确需并行实现时，必须先为每个并行任务建隔离工作树（`git worktree add .miemou/worktrees/<任务号> <分支>`），派发 prompt 写明 worktree 路径，合并后 `git worktree remove` 清理（细则 references/quality-gates.md §3）。派发前勘察涉及面，避免两个任务包隐性重叠。
 
 - **3.1 建分支 + 基线快照**：一任务一分支，从开发主分支（以约定卡为准）切出，绝不直接在主分支开发；命名 `feat|fix|docs/<任务号>-<slug>`；一条分支只解决一个任务，混入无关改动打回。建分支后立即捕获**基线快照**——当前 lint / 测试输出存 `.miemou/YYYYMM/DD/<任务号>-baseline.md`：后续门禁以「不劣于基线」为准，主分支存量红灯不阻塞新任务（references/quality-gates.md §1）。
 - **3.2 方案** (conditional)：涉及新依赖、跨模块/跨层改动、公共契约变更的任务，先派架构师子 agent 出方案，PM 验收后再实现；小任务直接进实现。
