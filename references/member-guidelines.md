@@ -9,7 +9,7 @@ miemou 团队成员不依赖外部 skill 安装与在线获取——六套规则
   深化指南与「设计两次」并行探索模式
 - `references/architecture-report.md` — §6 候选呈报的 HTML 报告格式与图示模式
 - `references/karpathy-examples.md` — §1 四原则的真实代码示例（对错对照、反模式速查、关键洞见）
-- `references/scripts/hitl-loop.template.sh` — §4 诊断循环最后手段的 HITL 回路模板脚本
+- `scripts/hitl-loop.template.sh` — §4 诊断循环最后手段的 HITL 回路模板脚本
 
 ## 目录
 
@@ -193,7 +193,7 @@ full（默认）/ ultra——PM 派发时在 prompt 中指定，未指定用 ful
 8. **bisect harness**——bug 出现在两个已知状态（commit、数据集、版本）之间时，
    自动化「启动到状态 X、检查、重复」，可 `git bisect run`。
 9. **差分回路**——同一输入走旧版 vs 新版（或两份配置），diff 输出。
-10. **HITL bash 脚本**——最后手段。必须有人点击时，用 `references/scripts/hitl-loop.template.sh`
+10. **HITL bash 脚本**——最后手段。必须有人点击时，用 `scripts/hitl-loop.template.sh`
     驱动操作者，让回路仍然结构化；捕获的输出回流给你。
 
 搭对了反馈回路，bug 就修好 90% 了。

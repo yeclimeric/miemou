@@ -61,7 +61,7 @@
 - [references/quality-gates.md](references/quality-gates.md)：质量门禁（基线口径）、分支与提交纪律、任务状态台账（.miemou/state.md）、红灯修复回路与熔断、无约定项目兜底。
 - [references/codebase-design.md](references/codebase-design.md)：架构深化配套——深模块设计词汇（模块/接口/深度/接缝/适配器/杠杆/局部性）、深化指南与「设计两次」并行探索模式。
 - [references/architecture-report.md](references/architecture-report.md)：架构深化配套——候选呈报 HTML 报告格式、脚手架与图示模式。
-- [references/scripts/hitl-loop.template.sh](references/scripts/hitl-loop.template.sh)：诊断循环配套——HITL（human-in-the-loop）复现回路模板脚本。
+- [scripts/hitl-loop.template.sh](scripts/hitl-loop.template.sh)：诊断循环配套——HITL（human-in-the-loop）复现回路模板脚本。
 
 ## 致谢（Acknowledgments）
 
@@ -76,7 +76,7 @@
 | [member-guidelines.md](references/member-guidelines.md) §6 | improve-codebase-architecture | 架构深化：摩擦勘察、删除测试、HTML 候选报告、审视循环 | 未标注 |
 | [codebase-design.md](references/codebase-design.md) | codebase-design | 深模块设计词汇、深化指南、「设计两次」并行探索模式 | 未标注 |
 | [architecture-report.md](references/architecture-report.md) | improve-codebase-architecture（HTML-REPORT.md） | 架构审视 HTML 报告格式与图示模式 | 未标注 |
-| [scripts/hitl-loop.template.sh](references/scripts/hitl-loop.template.sh) | diagnosing-bugs（scripts/） | HITL 复现回路模板脚本 | 未标注 |
+| [scripts/hitl-loop.template.sh](scripts/hitl-loop.template.sh) | diagnosing-bugs（scripts/） | HITL 复现回路模板脚本 | 未标注 |
 
 其余一套规则（§3 TDD）为本项目原生内容。
 
